@@ -31,6 +31,7 @@ import timber.log.Timber
 
 const val KEY_REVENUE = "revenue_key"
 const val KEy_DESSERT_SOLD = "dessert_sold_key"
+const val KEY_TIMER = "timer_key"
 
 class MainActivity : AppCompatActivity() {
 
@@ -85,6 +86,7 @@ class MainActivity : AppCompatActivity() {
         if (savedInstanceState != null){
             revenue = savedInstanceState.getInt(KEY_REVENUE, 0)
             dessertsSold = savedInstanceState.getInt(KEy_DESSERT_SOLD, 0)
+            dessertTimer.secondsCount = savedInstanceState.getInt(KEY_TIMER, 0)
             showCurrentDessert()
         }
 
@@ -169,6 +171,7 @@ class MainActivity : AppCompatActivity() {
         super.onSaveInstanceState(outState)
         outState.putInt(KEY_REVENUE, revenue)
         outState.putInt(KEy_DESSERT_SOLD,dessertsSold)
+        outState.putInt(KEY_TIMER, dessertTimer.secondsCount)
     }
 
     override fun onStart() {
